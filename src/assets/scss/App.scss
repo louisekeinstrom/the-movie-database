@@ -1,0 +1,23 @@
+@import "bootstrap/scss/bootstrap";
+
+body{
+    margin: 0px;
+    background-color: #191919;
+}
+.container {
+    width: 100%;
+}
+
+h1, h4 {
+    color: white;
+}
+
+.background-image{
+    background-repeat: no-repeat;
+    background-size: contain;   
+}
+
+.info {
+    background-color: beige;
+    box-shadow: 2px 2px 10px;
+}
