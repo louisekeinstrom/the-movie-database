@@ -57,7 +57,7 @@ const Movie = () => {
                             <p className="d-flex flex-column text-center" style={{ width: '75%' }}>{oneMovie.overview}</p>
                         </div>
                         <div className="info-box">
-                            <div>
+                            <div className="d-flex align-items-center flex-column p-5">
                                 <h4 style={{textTransform: 'capitalize'}}>Original Title: {oneMovie.original_title}</h4>
                                 <h4 style={{textTransform: 'capitalize'}}>Original Language: {oneMovie.original_language}</h4>
                                 <h4>Revenue {oneMovie.revenue}</h4> 
@@ -66,11 +66,14 @@ const Movie = () => {
                                 <h4>Vote Count {oneMovie.vote_count}</h4>
                             </div>
                             <div className="info">
-                                <div>
+                                <div 
+                                    className="p-2 m-2 d-flex align-items-center flex-column"
+                                    style={{width: '33%'}}
+                                >
                                     <h4>Spoken Languages</h4>
                                     <ListGroup 
                                         className="p-2 m-2"
-                                        style={{textTransform: 'capitalize'}}
+                                        style={{textTransform: 'capitalize', width: '100%'}}
                                         >
                                         {oneMovie.spoken_languages.map((lang:SpokenLanguageType)=> (
                                             <ListGroup.Item key={lang.name}>
@@ -79,9 +82,15 @@ const Movie = () => {
                                         ))}
                                     </ListGroup>
                                 </div>
-                                <div>
+                                <div 
+                                    className="p-2 m-2 d-flex align-items-center flex-column"
+                                    style={{width: '33%'}}
+                                >
                                     <h4>Production Companies</h4>
-                                    <ListGroup className="p-2 m-2">
+                                    <ListGroup 
+                                        className="p-2 m-2"
+                                        style={{width: '100%'}}
+                                        >
                                         {oneMovie.production_companies.map((movie:ProductionCompanyType)=> (
                                             <ListGroup.Item key={movie.id}>
                                                 <h5>{movie.name}</h5>
@@ -90,9 +99,15 @@ const Movie = () => {
                                         ))}
                                     </ListGroup>
                                 </div>
-                                <div>
+                                <div 
+                                    className="p-2 m-2 d-flex align-items-center flex-column"
+                                    style={{width: '33%'}}
+                                >
                                     <h4>Production Countries</h4>
-                                    <ListGroup className="p-2 m-2">
+                                    <ListGroup 
+                                        className="p-2 m-2"
+                                        style={{width: '100%'}}
+                                        >
                                         {oneMovie.production_countries.map((movie:ProductionCountryType)=> (
                                             <ListGroup.Item key={movie.name}>
                                                 <h5>{movie.name} </h5>
