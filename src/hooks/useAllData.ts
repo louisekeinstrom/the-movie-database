@@ -5,7 +5,6 @@ const useAllData = <T>( endpoint:string) => {
     return useQuery({
         queryKey: ['allData'],
         queryFn: () => getAllData<T>(endpoint),    
-    })
+    })    
 }
-
 export default useAllData

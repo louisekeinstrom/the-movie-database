@@ -21,7 +21,7 @@ const Navigation = () => {
                                 
                                 {/* DROPDOWN MENU */}
                             <NavDropdown title="More" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={NavLink} end to="/in-theatre/1">In Theatre</NavDropdown.Item>
+                                <NavDropdown.Item as={NavLink} end to="in-theatre/1">In Theatre</NavDropdown.Item>
                                 <NavDropdown.Item as={NavLink} end to="/trending">Trending</NavDropdown.Item>
                                 <NavDropdown.Item as={NavLink} end to="/top-rated">Top Rated</NavDropdown.Item>
                                 <NavDropdown.Item as={NavLink} end to="/genres">Genres</NavDropdown.Item>

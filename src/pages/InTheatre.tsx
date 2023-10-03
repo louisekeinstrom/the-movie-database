@@ -2,20 +2,29 @@ import { Alert, Spinner } from 'react-bootstrap'
 import useAllData from '../hooks/useAllData'
 import CardDisplay from '../components/CardDisplay'
 import Pagination from '../components/Pagination'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MovieResponse } from '../types'
 import { useParams } from 'react-router-dom'
 
 const InTheatre = () => {
-    const { id } = useParams()
-	const movieId = Number(id)
-    console.log('movieID',movieId)
-	const [page, setPage] = useState(movieId)
+    const [page, setPage] = useState(1)
 	const { data: theatreData, 
-            isError, 
-            isLoading, 
-            refetch } = useAllData<MovieResponse>(`/movie/now_playing?include_adult=false&page=${page}&`)
-console.log('page',page)
+        isError, 
+        isLoading, 
+        refetch } = useAllData<MovieResponse>(`/movie/now_playing?include_adult=false&page=:id&`)
+        const { id } = useParams()
+        const movieId = Number(id)
+        console.log('movieID',movieId)
+        
+            useEffect(() => {
+                const handlePage = () => {
+                    setPage(page+1)
+                }
+        
+                handlePage()
+            }, [movieId])
+    console.log(page)
+
     return (
         <>           
             {isError && 
@@ -55,14 +64,17 @@ console.log('page',page)
                             hasPreviousPage={page > 1}
                             hasNextPage={page + 1 < theatreData.total_pages}
                             onPreviousPage={() => { setPage(preValue => preValue - 1) }}
-                            onNextPage={() => { setPage(preValue => preValue + 1), refetch }}
+                            onNextPage={() => { setPage(preValue => preValue + 1) }}
                         />
                     </div>
                         
                 </>
             }
         </>
+    
     )
+
+    
 }
 
 export default InTheatre

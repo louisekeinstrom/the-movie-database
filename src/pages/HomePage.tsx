@@ -11,7 +11,6 @@ const HomePage = () => {
             isError, 
             isLoading, 
             refetch } = useAllData<MovieResponse>(`discover/movie?include_adult=false&sort_by=popularity.desc&`)
-
     return (
         <>
             {isError && 
