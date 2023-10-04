@@ -11,12 +11,11 @@ import ImgCarousel from "../components/ImgCarousel"
 
 const Movie = () => {
     const { id } = useParams()
-	const movieId = Number(id)
+    const movieId = Number(id)
     const { data: oneMovie, isError, isLoading } = useOneObject<SpecificMovieType>(`/movie/${movieId}?include_video=true&`)
     // const mutation = useAllMutation(`/movie/${movieId}/credits`)
-    return( 
+    return(
         <>
-
             {isError && 
                 <>
                     <Alert variant='warning'>
@@ -32,7 +31,7 @@ const Movie = () => {
                     </div>
                 </>
             }
-            
+
             {oneMovie &&
                 <>
                     <div 
@@ -49,29 +48,29 @@ const Movie = () => {
                             style={{maxWidth: '40%'}}    
                         />
                         <div className="p-2 m-2 movie-facts d-flex flex-column align-items-center">
-                            <h1>{oneMovie.title}</h1>
+                            <h1 style={{textTransform: 'uppercase'}} className='bold'>{oneMovie.title}</h1>
                             <div className="d-flex flex-column align-items-center p-2 ">
                                     <h3 className="d-flex flex-column align-items-center">{oneMovie.tagline}</h3>
                             </div>
-                            <p>Runtime: {oneMovie.runtime} min</p>
+                            <p><span className='bold'>Runtime:</span> {oneMovie.runtime} min</p>
                             <p className="d-flex flex-column text-center" style={{ width: '75%' }}>{oneMovie.overview}</p>
                         </div>
                         <div className="info-box">
                             <div className="d-flex align-items-center flex-column p-5">
-                                <h4 style={{textTransform: 'capitalize'}}>Original Title: {oneMovie.original_title}</h4>
-                                <h4 style={{textTransform: 'capitalize'}}>Original Language: {oneMovie.original_language}</h4>
-                                <h4>Revenue {oneMovie.revenue}</h4> 
-                                <h4>Popularity {oneMovie.popularity}</h4> 
-                                <h4>Vote Average {oneMovie.vote_average}/10</h4>
-                                <h4>Vote Count {oneMovie.vote_count}</h4>
+                                <h4 style={{textTransform: 'capitalize'}}> <span className='bold'>Original Title: </span>{oneMovie.original_title}</h4>
+                                <h4 style={{textTransform: 'capitalize'}}><span className='bold'>Original Language:</span> {oneMovie.original_language}</h4>
+                                <h4><span className='bold'>Revenue:</span> {oneMovie.revenue}</h4> 
+                                <h4><span className='bold'>Popularity:</span> {oneMovie.popularity}</h4> 
+                                <h4><span className='bold'>Vote Average:</span> {oneMovie.vote_average}/10</h4>
+                                <h4><span className='bold'>Vote Count:</span> {oneMovie.vote_count}</h4>
                             </div>
                             <div className="info">
                                 <div 
                                     className="p-2 m-2 d-flex align-items-center flex-column"
                                     style={{width: '33%'}}
                                 >
-                                    <h4>Spoken Languages</h4>
-                                    <ListGroup 
+                                    <h4><span className='bold'>Spoken Languages</span></h4>
+                                    <ListGroup
                                         className="p-2 m-2"
                                         style={{textTransform: 'capitalize', width: '100%'}}
                                         >
@@ -86,8 +85,8 @@ const Movie = () => {
                                     className="p-2 m-2 d-flex align-items-center flex-column"
                                     style={{width: '33%'}}
                                 >
-                                    <h4>Production Companies</h4>
-                                    <ListGroup 
+                                    <h4><span className='bold'>Production Companies</span></h4>
+                                    <ListGroup
                                         className="p-2 m-2"
                                         style={{width: '100%'}}
                                         >
@@ -103,8 +102,8 @@ const Movie = () => {
                                     className="p-2 m-2 d-flex align-items-center flex-column"
                                     style={{width: '33%'}}
                                 >
-                                    <h4>Production Countries</h4>
-                                    <ListGroup 
+                                    <h4><span className='bold'>Production Countries</span></h4>
+                                    <ListGroup
                                         className="p-2 m-2"
                                         style={{width: '100%'}}
                                         >
@@ -117,8 +116,8 @@ const Movie = () => {
                                 </div>
                             </div>
                                 <div style={{textDecoration: "none"}} className="p-2 m-2 d-flex flex-wrap flex-column align-items-center">
-                                    <a href={oneMovie.homepage}>
-                                        <h5>{oneMovie.title} Homepage</h5>
+                                    <a style={{textDecoration:'none', color:'white'}} href={oneMovie.homepage}>
+                                        <h5 className="bold">{oneMovie.title} Homepage</h5>
                                     </a>
                                 </div>
                             </div>

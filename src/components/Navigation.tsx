@@ -14,14 +14,14 @@ const Navigation = () => {
             <Navbar expand="lg" bg="dark" data-bs-theme="dark" sticky="top" >
                 <Container>
                     <Navbar bg="dark" data-bs-theme="dark">
-                    <Navbar.Brand as={NavLink} end to="/home/1">Home</Navbar.Brand>
+                    <Navbar.Brand as={NavLink} end to="/home">Home</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                                 
                                 {/* DROPDOWN MENU */}
                             <NavDropdown title="More" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={NavLink} end to="in-theatre/1">In Theatre</NavDropdown.Item>
+                                <NavDropdown.Item as={NavLink} end to="in-theatre">In Theatre</NavDropdown.Item>
                                 <NavDropdown.Item as={NavLink} end to="/trending">Trending</NavDropdown.Item>
                                 <NavDropdown.Item as={NavLink} end to="/top-rated">Top Rated</NavDropdown.Item>
                                 <NavDropdown.Item as={NavLink} end to="/genres">Genres</NavDropdown.Item>

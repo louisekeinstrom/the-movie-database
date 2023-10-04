@@ -12,17 +12,18 @@ const InTheatre = () => {
         isError, 
         isLoading, 
         refetch } = useAllData<MovieResponse>(`/movie/now_playing?include_adult=false&page=:id&`)
-        const { id } = useParams()
-        const movieId = Number(id)
-        console.log('movieID',movieId)
-        
-            useEffect(() => {
-                const handlePage = () => {
-                    setPage(page+1)
-                }
-        
-                handlePage()
-            }, [movieId])
+
+    const { id } = useParams()
+    const movieId = Number(id)
+    console.log('movieID',movieId)
+    
+        useEffect(() => {
+            const handlePage = () => {
+                setPage(page+1)
+            }
+    
+            handlePage()
+        }, [movieId])
     console.log(page)
 
     return (

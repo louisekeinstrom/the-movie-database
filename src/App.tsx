@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap'
 import '../src/assets/scss/App.scss'
 import Navigation from './components/Navigation'
-import { Route, Routes, useParams } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import InTheatre from './pages/InTheatre'
 import TopRated from './pages/TopRated'

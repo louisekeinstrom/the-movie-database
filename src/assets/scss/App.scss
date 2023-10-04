@@ -3,6 +3,7 @@
 body{
     margin: 0px;
     background-color: #191919;
+    font-family: 'Montserrat', sans-serif;
 }
 .container {
     width: 100%;
@@ -10,11 +11,12 @@ body{
 
 h1, h4 {
     color: white;
+    font-family: 'Rubik', sans-serif;
 }
 
 .background-image{
     background-repeat: no-repeat;
-    background-size: contain;   
+    background-size: contain;
 }
 
 .info-box {
@@ -32,4 +34,19 @@ h1, h4 {
     border-radius: 5px;
     margin: 10px;
     justify-content: space-between;
+}
+
+.bold {
+    font-weight: bolder;
+}
+
+.card-image {
+    border-radius: 0px;
+}
+
+.card-body {
+    border-radius: 5px;
+    padding: 0;
+    gap: 20px;
+
 }

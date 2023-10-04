@@ -32,7 +32,6 @@ const HomePage = () => {
             {homeData && homeData.results.length &&
                 <>
                     <h1 className='p-5 m-5'>Welcome to the Movie Database</h1>
-
                     <div  className='d-flex flex-wrap align-items-center flex-column p-2 m-2'>
                         <h4>Discover</h4>
                         <div className='d-flex flex-wrap align-items-center flex-row p-2 m-2'>
