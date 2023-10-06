@@ -2,8 +2,8 @@
 
 body{
     margin: 0px;
-    background-color: #191919;
     font-family: 'Montserrat', sans-serif;
+    background-color: black;
 }
 .container {
     width: 100%;
@@ -11,7 +11,8 @@ body{
 
 h1, h4 {
     color: white;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Dela Gothic One', cursive;
+    text-align: center;
 }
 
 .background-image{
@@ -48,5 +49,74 @@ h1, h4 {
     border-radius: 5px;
     padding: 0;
     gap: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 10px white;
 
+}
+
+.card-body:hover {
+    scale: 1.1;
+    background: rgb(124,124,124);
+    background: linear-gradient(90deg, rgba(124,124,124,0.48902888792235644) 0%, rgba(124,124,124,0.47222216523328087) 50%); 
+}
+
+.navBar {
+    box-shadow: 2px 2px 10px black;
+    padding: 10px 110px 10px 110px;
+    font-family: 'Dela Gothic One', cursive;
+    background: rgb(161,10,10);
+    background: radial-gradient(circle, rgba(161,10,10,1) 0%, rgba(0,0,0,0.7159196442248774) 100%); 
+}
+
+.NavLink {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+.homeIcon {
+    transition: all 0.3s ease-in-out;
+}
+
+.homeIcon:hover {
+    scale: 1.1;
+    font-weight: bold;
+}
+
+.captionBox {
+    background: rgb(161,10,10);
+    background: radial-gradient(circle, rgba(161,10,10,1) 0%, rgba(8,12,17,0.7159196442248774) 100%); 
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.carouselText {
+    text-decoration: none;
+    color: white;
+    padding-right: 20px;
+}
+
+.carouselBody {
+    box-shadow: 2px 2px 10px black;
+    padding: 30px;
+    margin-bottom: 15px;
+    background: rgb(161,10,10);
+    background: radial-gradient(circle, rgba(161,10,10,1) 0%, rgba(0,0,0,0.7159196442248774) 100%); 
+}
+
+.voteText {
+    text-align: start;
+}
+
+.page {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.list {
+    background-color: #7a0b0b;
+    color: white;
+    border: none;
 }

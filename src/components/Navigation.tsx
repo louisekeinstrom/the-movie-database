@@ -11,41 +11,14 @@ import Col from 'react-bootstrap/Col';
 const Navigation = () => {
     return (
         <>
-            <Navbar expand="lg" bg="dark" data-bs-theme="dark" sticky="top" >
-                <Container>
-                    <Navbar bg="dark" data-bs-theme="dark">
-                    <Navbar.Brand as={NavLink} end to="/home">Home</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                                
-                                {/* DROPDOWN MENU */}
-                            <NavDropdown title="More" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={NavLink} end to="in-theatre">In Theatre</NavDropdown.Item>
-                                <NavDropdown.Item as={NavLink} end to="/trending">Trending</NavDropdown.Item>
-                                <NavDropdown.Item as={NavLink} end to="/top-rated">Top Rated</NavDropdown.Item>
-                                <NavDropdown.Item as={NavLink} end to="/genres">Genres</NavDropdown.Item>
-                            </NavDropdown>
-                        </Nav>
-                        </Navbar.Collapse>  
-                    </Navbar>
-                         
-                         {/* SUBMIT FORM FOR SEARCHES */}
-                            <Form >
-                                <Row>
-                                <Col xs="auto">
-                                    <Form.Control
-                                    type="text"
-                                    placeholder="Search"
-                                    className=" mr-sm-2"
-                                    />
-                                </Col>
-                                <Col xs="auto">
-                                    <Button variant="outline-secondary" type="submit">Submit</Button>
-                                </Col>
-                                </Row>
-                            </Form>
-                </Container>
+            <Navbar expand="lg" bg="dark" data-bs-theme="dark" sticky="top" className='navBar'>
+                <Navbar>
+                    <Navbar.Brand className="homeIcon" as={NavLink} end to="/">TMDB</Navbar.Brand>
+                    <NavLink className="NavLink" to="in-theatre">In Theatre</NavLink>
+                    <NavLink className="NavLink" to="/trending">Trending</NavLink>
+                    <NavLink className="NavLink" to="/top-rated">Top Rated</NavLink>
+                    <NavLink className="NavLink" to="/genres">Genres</NavLink> 
+                </Navbar>
             </Navbar>
         </>
     )

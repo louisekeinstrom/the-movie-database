@@ -33,7 +33,7 @@ const TopRated = () => {
 
         {topRatedData && 
             <>
-                <h1 className='p-5 m-5'>Top Rated Movies</h1>
+                <h1 className='p-5 m-5'>TOP RATED MOVIES</h1>
                 <div className='d-flex flex-wrap flex-row p-2 m-2'>
                     {topRatedData.results.map(movie => (
                         <CardDisplay

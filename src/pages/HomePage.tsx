@@ -1,16 +1,18 @@
-import { Alert, Spinner } from 'react-bootstrap'
+import { Alert, Carousel, Spinner } from 'react-bootstrap'
 import useAllData from '../hooks/useAllData'
 import Pagination from '../components/Pagination'
 import CardDisplay from '../components/CardDisplay'
 import { MovieResponse } from '../types'
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const HomePage = () => {
 	const { data: homeData, 
             isError, 
             isLoading, 
             refetch } = useAllData<MovieResponse>(`discover/movie?include_adult=false&sort_by=popularity.desc&`)
+            const HomePageMovie = homeData?.results.slice(5)
+
     return (
         <>
             {isError && 
@@ -29,24 +31,29 @@ const HomePage = () => {
                 </>
             }
             
-            {homeData && homeData.results.length &&
+            {HomePageMovie && HomePageMovie.length &&
                 <>
-                    <h1 className='p-5 m-5'>Welcome to the Movie Database</h1>
-                    <div  className='d-flex flex-wrap align-items-center flex-column p-2 m-2'>
-                        <h4>Discover</h4>
-                        <div className='d-flex flex-wrap align-items-center flex-row p-2 m-2'>
-                            {homeData.results.map((movie) => (
-                                <CardDisplay
-                                key={movie.id}
-                                title={movie.title}
-                                poster_path={movie.poster_path}
-                                id={movie.id}
-                                />
-                                ))}
-                        </div>
-                    </div>
-                    <div>
-                    </div>
+                    <h1 className=' m-5'>WELCOME TO THE MOVIE DATABASE</h1>
+                    <h2 className='p-3' style={{color:'white', textAlign:'center'}}>Feel free to browse around and discover top rated movies</h2>
+                    <Carousel className='carouselBody' style={{width: '100%'}}>
+                    {HomePageMovie.map((movie) => (
+                        <Carousel.Item
+                            key={movie.id}
+                            as={Link} to={"movie/" + movie.id}
+                            style={{textDecoration:'none'}}>
+                            <div className='d-flex flex-row p-10 align-content-center justify-content-center'>
+                                <div className='carouselText' style={{width:'25%', height:'200px'}}>
+                                    <h4 style={{textAlign: 'start'}}>{movie.title}</h4>
+                                    <h4 className='voteText'>⭐{movie.vote_average}</h4>
+                                    <p style={{textOverflow: 'ellipsis'}}>{movie.overview}</p>
+                                </div>
+                                <div className='carousel align-items-center'>
+                                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} style={{height:'400px'}}/>
+                                </div>
+                            </div>
+                        </Carousel.Item>
+                        ))}
+                    </Carousel>
                 </>
             }
         </>

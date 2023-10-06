@@ -31,7 +31,7 @@ const Trending = () => {
 
         {trendingData && 
             <>
-                <h1 className='p-5 m-5'>Trending Movies</h1>
+                <h1 className='p-5 m-5'>TRENDING MOVIES</h1>
                 <div className='d-flex flex-wrap flex-row p-2 m-2'>
                     {trendingData.results.map(movie => (
                         <CardDisplay

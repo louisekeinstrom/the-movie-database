@@ -36,8 +36,8 @@ const GenrePage = () => {
             }
 
             {genreData && 
-                <> 
-                    <h1 className='p-5 m-5'>Genres</h1>
+                <>
+                    <h1 className='p-5 m-5'>GENRES</h1>
                     <div className='d-flex m-2 flex-row flex-wrap align-items-center justify-content-center'>
                         {genreData.genres.map((oneGenre:GenreType) => (
                             <Button 

@@ -20,17 +20,19 @@ const Pagination:React.FC<IProps>= ({
     }) => {
     
     return (
-        <div>
-            <div>
+        <div className='page'>
+            <div className='d-flex flex-row'>
                 <Button 
+                    variant="outline-light"
                     disabled={!hasPreviousPage}
                     onClick={onPreviousPage}>
                         Previous Page
                 </Button>
-                <div>
+                <div style={{color:'white'}} className='p-5 pt-3 pb-3'>
                     {pageNumb}/{totalPages}
                 </div>
-                <Button 
+                <Button
+                    variant="outline-light"
                     disabled={!hasNextPage}
                     onClick={onNextPage}>
                         Next Page

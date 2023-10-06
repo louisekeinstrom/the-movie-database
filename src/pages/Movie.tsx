@@ -71,11 +71,13 @@ const Movie = () => {
                                 >
                                     <h4><span className='bold'>Spoken Languages</span></h4>
                                     <ListGroup
-                                        className="p-2 m-2"
+                                        className="list p-2 m-2"
                                         style={{textTransform: 'capitalize', width: '100%'}}
                                         >
                                         {oneMovie.spoken_languages.map((lang:SpokenLanguageType)=> (
-                                            <ListGroup.Item key={lang.name}>
+                                            <ListGroup.Item 
+                                                className="list"
+                                                key={lang.name}>
                                                     <h5>{lang.english_name}</h5>
                                                 </ListGroup.Item>
                                         ))}
@@ -87,11 +89,14 @@ const Movie = () => {
                                 >
                                     <h4><span className='bold'>Production Companies</span></h4>
                                     <ListGroup
-                                        className="p-2 m-2"
+                                        className="list p-2 m-2"
                                         style={{width: '100%'}}
                                         >
                                         {oneMovie.production_companies.map((movie:ProductionCompanyType)=> (
-                                            <ListGroup.Item key={movie.id}>
+                                            <ListGroup.Item 
+                                                key={movie.id}
+                                                className="list"
+                                                >
                                                 <h5>{movie.name}</h5>
                                                 <p>{movie.origin_country}</p>
                                             </ListGroup.Item>
@@ -104,11 +109,13 @@ const Movie = () => {
                                 >
                                     <h4><span className='bold'>Production Countries</span></h4>
                                     <ListGroup
-                                        className="p-2 m-2"
+                                        className="list p-2 m-2"
                                         style={{width: '100%'}}
                                         >
                                         {oneMovie.production_countries.map((movie:ProductionCountryType)=> (
-                                            <ListGroup.Item key={movie.name}>
+                                            <ListGroup.Item
+                                                className="list"
+                                                key={movie.name}>
                                                 <h5>{movie.name} </h5>
                                             </ListGroup.Item>
                                         ))}

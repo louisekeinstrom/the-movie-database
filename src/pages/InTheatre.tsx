@@ -47,7 +47,7 @@ const InTheatre = () => {
 
             {theatreData && 
                 <>
-                    <h1 className='p-5 m-5'>In Theatre</h1>
+                    <h1 className='p-5 m-5'>IN THEATRE</h1>
                     <div className='d-flex flex-wrap flex-row p-2 m-2'>
                         {theatreData.results.map(movie => (
                             <CardDisplay
