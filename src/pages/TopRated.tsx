@@ -7,8 +7,8 @@ import { useState } from 'react'
 
 const TopRated = () => {
 	const [page, setPage] = useState(1)
-    const { data: topRatedData, 
-            isError, 
+    const { data: topRatedData,
+            isError,
             isLoading,
             refetch } = useAllData<MovieResponse>("/movie/top_rated")
 
@@ -29,9 +29,8 @@ const TopRated = () => {
                     </div>
                 </>
             }
-            
 
-        {topRatedData && 
+        {topRatedData &&
             <>
                 <h1 className='p-5 m-5'>TOP RATED MOVIES</h1>
                 <div className='d-flex flex-wrap flex-row p-2 m-2'>

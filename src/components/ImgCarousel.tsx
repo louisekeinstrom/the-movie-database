@@ -18,12 +18,12 @@ const ImgCarousel:React.FC<ICast> = ({id, cast, crew}) => {
         <div>
             <h2>CAST</h2>
             <Carousel>
-                {cast.map(dataType => 
+                {cast.map(dataType =>
                     <Carousel.Item key={id}>
-                        <img 
-                            src={`https://image.tmdb.org/t/p/w500${dataType.profile_path}`} 
+                        <img
+                            src={`https://image.tmdb.org/t/p/w500${dataType.profile_path}`}
                             alt={dataType.name}
-                            style={{maxWidth: '40%'}}    
+                            style={{maxWidth: '40%'}}
                         />
                         <div>
                             <h2>{dataType.name}</h2>
@@ -38,12 +38,12 @@ const ImgCarousel:React.FC<ICast> = ({id, cast, crew}) => {
             </Carousel>
             <h2>CREW</h2>
             <Carousel>
-                {crew.map(dataType => 
+                {crew.map(dataType =>
                     <Carousel.Item key={dataType.id}>
-                        <img 
-                                src={`https://image.tmdb.org/t/p/w500${dataType.profile_path}`} 
+                        <img
+                                src={`https://image.tmdb.org/t/p/w500${dataType.profile_path}`}
                                 alt={dataType.name}
-                                style={{maxWidth: '40%'}}    
+                                style={{maxWidth: '40%'}}
                         />
                         <div>
                             <h2>{dataType.name}</h2>

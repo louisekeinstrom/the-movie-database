@@ -59,9 +59,9 @@ const Movie = () => {
                             <div className="d-flex align-items-center flex-column p-5">
                                 <h4 style={{textTransform: 'capitalize'}}> <span className='bold'>Original Title: </span>{oneMovie.original_title}</h4>
                                 <h4 style={{textTransform: 'capitalize'}}><span className='bold'>Original Language:</span> {oneMovie.original_language}</h4>
+                                <h4>⭐ {oneMovie.vote_average}/10</h4>
                                 <h4><span className='bold'>Revenue:</span> {oneMovie.revenue}</h4> 
                                 <h4><span className='bold'>Popularity:</span> {oneMovie.popularity}</h4> 
-                                <h4><span className='bold'>Vote Average:</span> {oneMovie.vote_average}/10</h4>
                                 <h4><span className='bold'>Vote Count:</span> {oneMovie.vote_count}</h4>
                             </div>
                             <div className="info">

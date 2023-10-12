@@ -17,11 +17,10 @@ const Navigation = () => {
                     <NavLink className="NavLink" to="in-theatre">In Theatre</NavLink>
                     <NavLink className="NavLink" to="/trending">Trending</NavLink>
                     <NavLink className="NavLink" to="/top-rated">Top Rated</NavLink>
-                    <NavLink className="NavLink" to="/genres">Genres</NavLink> 
+                    <NavLink className="NavLink" to="/genres">Genres</NavLink>
                 </Navbar>
             </Navbar>
         </>
-    )
-}
+)}
 
 export default Navigation

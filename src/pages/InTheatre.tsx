@@ -5,30 +5,26 @@ import Pagination from '../components/Pagination'
 import { useEffect, useState } from 'react'
 import { MovieResponse } from '../types'
 import { useParams } from 'react-router-dom'
+import usePage from '../hooks/usePage'
 
 const InTheatre = () => {
     const [page, setPage] = useState(1)
-	const { data: theatreData, 
-        isError, 
-        isLoading, 
-        refetch } = useAllData<MovieResponse>(`/movie/now_playing?include_adult=false&page=:id&`)
+	const { data: theatreData,
+        isError,
+        isLoading,
+        refetch } = useAllData<MovieResponse>(`/movie/now_playing?include_adult=false&page=${page}`)
 
-    const { id } = useParams()
-    const movieId = Number(id)
-    console.log('movieID',movieId)
-    
+        const pageFn = (page:number) => {
+            setPage(preValue => preValue + page)
+        }
+
         useEffect(() => {
-            const handlePage = () => {
-                setPage(page+1)
-            }
-    
-            handlePage()
-        }, [movieId])
-    console.log(page)
+            console.log(page)
+        },[pageFn])
 
     return (
-        <>           
-            {isError && 
+        <>
+            {isError &&
                 <>
                     <Alert variant='warning'>
                         <h2>An error occurred...</h2>
@@ -36,16 +32,15 @@ const InTheatre = () => {
                 </>
             }
 
-            {isLoading && 
+            {isLoading &&
                 <>
                     <div className='d-flex flex-column'>
                         <Spinner animation='grow'/> <h2>Buffrar...</h2>
                     </div>
                 </>
             }
-            
 
-            {theatreData && 
+            {theatreData &&
                 <>
                     <h1 className='p-5 m-5'>IN THEATRE</h1>
                     <div className='d-flex flex-wrap flex-row p-2 m-2'>
@@ -64,18 +59,15 @@ const InTheatre = () => {
                             totalPages={theatreData.total_pages}
                             hasPreviousPage={page > 1}
                             hasNextPage={page + 1 < theatreData.total_pages}
-                            onPreviousPage={() => { setPage(preValue => preValue - 1) }}
-                            onNextPage={() => { setPage(preValue => preValue + 1) }}
+                            onPreviousPage={() => { pageFn(-1) }}
+                            onNextPage={() => { pageFn(1) }}
                         />
                     </div>
-                        
                 </>
             }
         </>
-    
     )
 
-    
 }
 
 export default InTheatre

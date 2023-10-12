@@ -7,29 +7,26 @@ import { useState } from 'react'
 
 const Trending = () => {
 	const [page, setPage] = useState(1)
-    const { data: trendingData, 
-            isError, 
+    const { data: trendingData,
+            isError,
             isLoading,
             refetch } = useAllData<MovieResponse>("/trending/movie/day?")
 
     return (
         <>
-            
             {isError && (
                 <Alert variant='warning'>
                     <h2>An error occurred...</h2>
                 </Alert>
             )}
 
-            {isLoading && ( <>
-                <div className='d-flex flex-column'>
-                    <Spinner animation='grow'/> <h2>Buffrar...</h2>
-                </div>
-                </>
+            {isLoading && (
+                    <div className='d-flex flex-column'>
+                        <Spinner animation='grow'/> <h2>Buffrar...</h2>
+                    </div>
             )}
-            
 
-        {trendingData && 
+        {trendingData &&
             <>
                 <h1 className='p-5 m-5'>TRENDING MOVIES</h1>
                 <div className='d-flex flex-wrap flex-row p-2 m-2'>
@@ -57,7 +54,6 @@ const Trending = () => {
             </>
         }
     </>
-)
-}
+)}
 
 export default Trending

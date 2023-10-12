@@ -7,15 +7,15 @@ import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 const HomePage = () => {
-	const { data: homeData, 
-            isError, 
-            isLoading, 
+	const { data: homeData,
+            isError,
+            isLoading,
             refetch } = useAllData<MovieResponse>(`discover/movie?include_adult=false&sort_by=popularity.desc&`)
             const HomePageMovie = homeData?.results.slice(5)
 
     return (
         <>
-            {isError && 
+            {isError &&
                 <>
                     <Alert variant='warning'>
                         <h2>An error occurred...</h2>
@@ -23,14 +23,14 @@ const HomePage = () => {
                 </>
             }
 
-            {isLoading && 
+            {isLoading &&
                 <>
                     <div className='d-flex flex-column'>
                         <Spinner animation='grow'/> <h2>Buffrar...</h2>
                     </div>
                 </>
             }
-            
+
             {HomePageMovie && HomePageMovie.length &&
                 <>
                     <h1 className=' m-5'>WELCOME TO THE MOVIE DATABASE</h1>
@@ -58,7 +58,6 @@ const HomePage = () => {
             }
         </>
     )
-    
 }
 
 export default HomePage

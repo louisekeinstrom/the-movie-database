@@ -3,11 +3,11 @@ import Button  from 'react-bootstrap/Button';
 
 interface IProps {
     pageNumb: number
-	totalPages: number
-	hasPreviousPage: boolean
-	hasNextPage: boolean
-	onPreviousPage: () => void
-	onNextPage: () => void
+    totalPages: number
+    hasPreviousPage: boolean
+    hasNextPage: boolean
+    onPreviousPage: () => void
+    onNextPage: () => void
   }
 
 const Pagination:React.FC<IProps>= ({
@@ -16,13 +16,13 @@ const Pagination:React.FC<IProps>= ({
         hasPreviousPage,
         hasNextPage,
         onPreviousPage,
-        onNextPage, 
+        onNextPage,
     }) => {
-    
+
     return (
         <div className='page'>
             <div className='d-flex flex-row'>
-                <Button 
+                <Button
                     variant="outline-light"
                     disabled={!hasPreviousPage}
                     onClick={onPreviousPage}>
@@ -39,7 +39,7 @@ const Pagination:React.FC<IProps>= ({
                 </Button>
             </div>
         </div>
-    )   
+    )
 }
 
 export default Pagination

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { 
+import {
 	MovieResponse,
 	SpecificMovieType} from "../types/index";
 
@@ -23,11 +23,11 @@ const instance = axios.create({
  */
 
 export const getAllData = async <T>(endpoint: string) => {
-	const response = await instance.get(`${endpoint}api_key=` + API)
+	const response = await instance.get(`${endpoint}&api_key=` + API)
 	return response.data as T
 }
 
 export const getData = async <T>(endpoint: string) => {
-	const response = await instance.get(`${endpoint}api_key=` + API)
+	const response = await instance.get(`${endpoint}&api_key=` + API)
 	return response.data as T
 }

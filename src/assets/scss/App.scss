@@ -74,6 +74,10 @@ h1, h4 {
     padding: 10px;
 }
 
+.NavLink:active {
+    color: #212529;
+}
+
 .homeIcon {
     transition: all 0.3s ease-in-out;
 }
