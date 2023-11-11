@@ -1,126 +1,152 @@
 @import "bootstrap/scss/bootstrap";
 
-body{
-    margin: 0px;
-    font-family: 'Montserrat', sans-serif;
-    background-color: black;
+body {
+	margin: 0px;
+	font-family: "Montserrat", sans-serif;
+	background-color: black;
 }
 .container {
-    width: 100%;
+	width: 100%;
 }
 
-h1, h4 {
-    color: white;
-    font-family: 'Dela Gothic One', cursive;
-    text-align: center;
+h1,
+h4 {
+	color: white;
+	font-family: "Dela Gothic One", cursive;
+	text-align: center;
 }
 
-.background-image{
-    background-repeat: no-repeat;
-    background-size: contain;
+.background-image {
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-color: #212529;
+}
+
+.btn.active {
+	color: white;
+}
+
+.btn {
+	color: white;
 }
 
 .info-box {
-    background-color: #212529;
-    border-radius: 5px;
-    box-shadow: 2px 2px 10px black;
-    padding: 20px;
-    margin: 20px;
+	background-color: #212529;
+	border-radius: 5px;
+	box-shadow: 2px 2px 10px black;
+	padding: 20px;
+	margin: 20px;
 }
 
 .info {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    border-radius: 5px;
-    margin: 10px;
-    justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	padding: 20px;
+	border-radius: 5px;
+	margin: 10px;
+	justify-content: space-between;
 }
 
 .bold {
-    font-weight: bolder;
+	font-weight: bolder;
 }
 
 .card-image {
-    border-radius: 0px;
+	border-radius: 0px;
 }
 
 .card-body {
-    border-radius: 5px;
-    padding: 0;
-    gap: 20px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 2px 2px 10px white;
-
+	border-radius: 5px;
+	padding: 0;
+	gap: 20px;
+	transition: all 0.3s ease-in-out;
+	box-shadow: 2px 2px 10px white;
+	max-width: 200px;
 }
 
 .card-body:hover {
-    scale: 1.1;
-    background: rgb(124,124,124);
-    background: linear-gradient(90deg, rgba(124,124,124,0.48902888792235644) 0%, rgba(124,124,124,0.47222216523328087) 50%); 
+	scale: 1.1;
+	background: rgb(124, 124, 124);
+	background: linear-gradient(
+		90deg,
+		rgba(124, 124, 124, 0.48902888792235644) 0%,
+		rgba(124, 124, 124, 0.47222216523328087) 50%
+	);
 }
 
 .navBar {
-    box-shadow: 2px 2px 10px black;
-    padding: 10px 110px 10px 110px;
-    font-family: 'Dela Gothic One', cursive;
-    background: rgb(161,10,10);
-    background: radial-gradient(circle, rgba(161,10,10,1) 0%, rgba(0,0,0,0.7159196442248774) 100%); 
+	box-shadow: 2px 2px 10px black;
+	padding: 10px 110px 10px 110px;
+	font-family: "Dela Gothic One", cursive;
+	background: rgb(161, 10, 10);
+	background: radial-gradient(
+		circle,
+		rgba(161, 10, 10, 1) 0%,
+		rgba(0, 0, 0, 0.7159196442248774) 100%
+	);
 }
 
 .NavLink {
-    text-decoration: none;
-    color: white;
-    padding: 10px;
+	text-decoration: none;
+	color: white;
+	padding: 10px;
 }
 
 .NavLink:active {
-    color: #212529;
+	color: #212529;
 }
 
 .homeIcon {
-    transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
 .homeIcon:hover {
-    scale: 1.1;
-    font-weight: bold;
+	scale: 1.1;
+	font-weight: bold;
 }
 
 .captionBox {
-    background: rgb(161,10,10);
-    background: radial-gradient(circle, rgba(161,10,10,1) 0%, rgba(8,12,17,0.7159196442248774) 100%); 
-    background-color: transparent;
-    text-decoration: none;
+	background: rgb(161, 10, 10);
+	background: radial-gradient(
+		circle,
+		rgba(161, 10, 10, 1) 0%,
+		rgba(8, 12, 17, 0.7159196442248774) 100%
+	);
+	background-color: transparent;
+	text-decoration: none;
 }
 
 .carouselText {
-    text-decoration: none;
-    color: white;
-    padding-right: 20px;
+	text-decoration: none;
+	color: white;
+	padding-right: 20px;
 }
 
 .carouselBody {
-    box-shadow: 2px 2px 10px black;
-    padding: 30px;
-    margin-bottom: 15px;
-    background: rgb(161,10,10);
-    background: radial-gradient(circle, rgba(161,10,10,1) 0%, rgba(0,0,0,0.7159196442248774) 100%); 
+	box-shadow: 2px 2px 10px black;
+	padding: 30px;
+	margin-bottom: 15px;
+	background: rgb(161, 10, 10);
+	background: radial-gradient(
+		circle,
+		rgba(161, 10, 10, 1) 0%,
+		rgba(0, 0, 0, 0.7159196442248774) 100%
+	);
 }
 
 .voteText {
-    text-align: start;
+	text-align: start;
 }
 
 .page {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    margin-bottom: 40px;
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+	margin-bottom: 40px;
 }
 
 .list {
-    background-color: #7a0b0b;
-    color: white;
-    border: none;
+	background-color: #7a0b0b;
+	color: white;
+	border: none;
 }
