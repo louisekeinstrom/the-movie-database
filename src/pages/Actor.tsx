@@ -124,7 +124,7 @@ const Actor = () => {
 														movie.poster_path
 													}
 													id={movie.id}
-													path="/movie/"
+													path="/movie"
 												/>
 											)
 										)}
