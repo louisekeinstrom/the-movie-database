@@ -19,7 +19,7 @@ const CardDisplay: React.FC<ICard> = ({ id, title, poster_path, path }) => {
 			}}
 		>
 			<a
-				href={path + "/" + id}
+				href={path + "/" + id + "/"}
 				style={{
 					textDecoration: "none",
 				}}
