@@ -1,43 +1,45 @@
 {
-  "name": "javascript2-uppgift2",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@tanstack/react-query": "^4.33.0",
-    "@tanstack/react-query-devtools": "^4.33.0",
-    "axios": "^1.5.0",
-    "bootstrap": "^5.3.1",
-    "classnames": "^2.3.2",
-    "node-fetch": "^2.7.0",
-    "react": "^18.2.0",
-    "react-bootstrap": "^2.8.0",
-    "react-bootstrap-sidebar-menu": "^2.0.3",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0",
-    "react-toastify": "^9.1.3",
-    "sass": "^1.64.2"
-  },
-  "devDependencies": {
-    "@tanstack/eslint-plugin-query": "^4.34.1",
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react": "^4.0.3",
-    "eslint": "^8.45.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "netlify-cli": "^17.2.2",
-    "prettier": "3.0.3",
-    "react-paginate": "^8.2.0",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
-  }
+	"name": "javascript2-uppgift2",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"predeploy": "npm run build",
+		"deploy": "netlify deploy --prod",
+		"build": "tsc && vite build",
+		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@tanstack/react-query": "^4.33.0",
+		"@tanstack/react-query-devtools": "^4.33.0",
+		"axios": "^1.5.0",
+		"bootstrap": "^5.3.1",
+		"classnames": "^2.3.2",
+		"node-fetch": "^2.7.0",
+		"react": "^18.2.0",
+		"react-bootstrap": "^2.8.0",
+		"react-bootstrap-sidebar-menu": "^2.0.3",
+		"react-dom": "^18.2.0",
+		"react-router-dom": "^6.15.0",
+		"react-toastify": "^9.1.3",
+		"sass": "^1.64.2"
+	},
+	"devDependencies": {
+		"@tanstack/eslint-plugin-query": "^4.34.1",
+		"@types/react": "^18.2.15",
+		"@types/react-dom": "^18.2.7",
+		"@typescript-eslint/eslint-plugin": "^6.0.0",
+		"@typescript-eslint/parser": "^6.0.0",
+		"@vitejs/plugin-react": "^4.0.3",
+		"eslint": "^8.45.0",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.3",
+		"netlify-cli": "^17.2.2",
+		"prettier": "3.0.3",
+		"react-paginate": "^8.2.0",
+		"typescript": "^5.0.2",
+		"vite": "^4.4.5"
+	}
 }
