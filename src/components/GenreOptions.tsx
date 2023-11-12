@@ -3,7 +3,6 @@ import useAllData from "../hooks/useAllData";
 import { Alert, Spinner } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
-import { useEffect, useState } from "react";
 
 interface IGenre {
 	genreNr: string;

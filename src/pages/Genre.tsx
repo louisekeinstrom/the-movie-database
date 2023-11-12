@@ -5,7 +5,6 @@ import { Alert, Spinner } from "react-bootstrap";
 import Pagination from "../components/Pagination";
 import CardDisplay from "../components/CardDisplay";
 import GenreOptions from "../components/GenreOptions";
-import { useState, useEffect } from "react";
 
 const Genre = () => {
 	const { id } = useParams();

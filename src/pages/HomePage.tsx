@@ -1,7 +1,6 @@
-import { Alert, Carousel, Spinner } from "react-bootstrap";
+import { Alert, Spinner } from "react-bootstrap";
 import useAllData from "../hooks/useAllData";
 import { MovieResponse } from "../types/movie.types";
-import { Link } from "react-router-dom";
 
 const HomePage = () => {
 	const {
