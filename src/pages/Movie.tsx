@@ -58,94 +58,77 @@ const Movie = () => {
 								alt={oneMovie.title}
 								style={{ maxWidth: "40%" }}
 							/>
-							<div className="p-2 m-2 movie-facts d-flex flex-column align-items-center">
+							<div className="p-2 m-2 d-flex flex-column align-items-center">
 								<h1
 									style={{ textTransform: "uppercase" }}
-									className="bold"
+									className=""
 								>
 									{oneMovie.title}
 								</h1>
 								<div className="d-flex flex-column align-items-center p-2 ">
-									<h3 className="d-flex flex-column align-items-center muted">
+									<h3 className="d-flex flex-column align-items-center">
 										{oneMovie.tagline}
 									</h3>
 								</div>
-								<p className="muted">
-									<span className="bold">Release date:</span>{" "}
+								<p>
+									<span>Release date:</span>{" "}
 									{oneMovie.release_date}
 								</p>
-								<p className="muted">
-									<span className="bold">Runtime:</span>{" "}
-									{oneMovie.runtime} min
+								<p>
+									<span>Runtime:</span> {oneMovie.runtime} min
 								</p>
 								<p
-									className="d-flex flex-column text-center muted"
+									className="d-flex flex-column text-center"
 									style={{ width: "75%" }}
 								>
 									{oneMovie.overview}
 								</p>
 							</div>
-							<div className="info-box">
-								<div className="d-flex align-items-center flex-column p-5">
+							<div>
+								<div className="d-flex align-items-center justify-content-center flex-column p-5">
 									<h4 style={{ textTransform: "capitalize" }}>
 										{" "}
-										<span className="bold">
-											Original Title:{" "}
-										</span>
+										<span>Original Title: </span>
 										{oneMovie.original_title}
 									</h4>
 									<h4 style={{ textTransform: "capitalize" }}>
-										<span className="bold">
-											Original Language:
-										</span>{" "}
+										<span>Original Language:</span>{" "}
 										{oneMovie.original_language}
 									</h4>
 									<h4>⭐ {oneMovie.vote_average}/10</h4>
 									<h4 style={{ textTransform: "capitalize" }}>
 										{" "}
-										<span className="bold">Budget: </span>
+										<span>Budget: </span>
 										{oneMovie.budget}
 									</h4>
 									<h4>
-										<span className="bold">Revenue:</span>{" "}
-										{oneMovie.revenue}
+										<span>Revenue:</span> {oneMovie.revenue}
 									</h4>
 									<h4>
-										<span className="bold">
-											Popularity:
-										</span>{" "}
+										<span>Popularity:</span>{" "}
 										{oneMovie.popularity}
 									</h4>
 									<h4>
-										<span className="bold">
-											Vote Count:
-										</span>{" "}
+										<span>Vote Count:</span>{" "}
 										{oneMovie.vote_count}
 									</h4>
 								</div>
-								<div className="info d-flex flex-column flex-wrap align-items-center">
+								<div className="d-flex flex-column flex-wrap align-items-center">
 									{oneMovie.genres && (
 										<>
-											<div
-												className="d-flex flex-column"
-												style={{
-													width: "100%",
-												}}
-											>
-												<h4 className="bold">Genres</h4>
+											<div className="d-flex flex-column">
+												<h4>Genres</h4>
 												<ListGroup className="p-2 m-2">
 													{oneMovie.genres.map(
 														(
 															genreList: GenreType
 														) => (
 															<ListGroup.Item
-																className="list"
 																key={
 																	genreList.id
 																}
 															>
 																<h2
-																	className="bold-text"
 																	style={{
 																		textTransform:
 																			"capitalize",
@@ -164,17 +147,14 @@ const Movie = () => {
 									)}
 									{oneMovie.spoken_languages && (
 										<>
-											<div
-												className="p-2 m-2 d-flex align-items-center flex-column"
-												style={{ width: "100%" }}
-											>
+											<div className="p-2 m-2 d-flex align-items-center flex-column">
 												<h4>
-													<span className="bold">
+													<span>
 														Spoken Languages
 													</span>
 												</h4>
 												<ListGroup
-													className="list p-2 m-2"
+													className=" p-2 m-2"
 													style={{
 														textTransform:
 															"capitalize",
@@ -186,10 +166,9 @@ const Movie = () => {
 															lang: SpokenLanguageType
 														) => (
 															<ListGroup.Item
-																className="list"
 																key={lang.name}
 															>
-																<h2 className="bold-text">
+																<h2>
 																	{
 																		lang.english_name
 																	}
@@ -203,29 +182,22 @@ const Movie = () => {
 									)}
 									{oneMovie.production_companies && (
 										<>
-											<div
-												className="p-2 m-2 d-flex align-items-center flex-column"
-												style={{ width: "100%" }}
-											>
+											<div className="p-2 m-2 d-flex align-items-center flex-column">
 												<h4>
-													<span className="bold">
+													<span>
 														Production Companies
 													</span>
 												</h4>
-												<ListGroup
-													className="list p-2 m-2"
-													style={{ width: "100%" }}
-												>
+												<ListGroup className=" p-2 m-2">
 													{oneMovie.production_companies.map(
 														(
 															movie: ProductionCompanyType
 														) => (
 															<ListGroup.Item
 																key={movie.id}
-																className="list"
 															>
 																{" "}
-																<h2 className="bold-text">
+																<h2>
 																	{movie.name}
 																</h2>
 																<p>
@@ -247,23 +219,19 @@ const Movie = () => {
 												style={{ width: "100%" }}
 											>
 												<h4>
-													<span className="bold">
+													<span>
 														Production Countries
 													</span>
 												</h4>
-												<ListGroup
-													className="list p-2 m-2"
-													style={{ width: "100%" }}
-												>
+												<ListGroup className=" p-2 m-2">
 													{oneMovie.production_countries.map(
 														(
 															movie: ProductionCountryType
 														) => (
 															<ListGroup.Item
-																className="list"
 																key={movie.name}
 															>
-																<h2 className="bold-text">
+																<h2>
 																	{movie.name}{" "}
 																</h2>
 															</ListGroup.Item>
@@ -279,33 +247,29 @@ const Movie = () => {
 									className="p-2 m-2 d-flex flex-wrap flex-column align-items-center"
 								>
 									<a
-										className="bold-text p-2 dark-text"
+										className="p-2"
 										style={{
 											textDecoration: "none",
 										}}
 										href={oneMovie.homepage}
 									>
-										<h5 className="bold">
+										<h5 className=" web">
 											{oneMovie.title} Homepage
 										</h5>
 									</a>
 								</div>
-								<div className="d-flex align-items flex-column align-items-center soft-corner dark-color p-2">
-									<h2 className="p-2 d-flex align-items-center bold-text">
-										Actors
+								<div className="d-flex align-items flex-column align-items-center p-2">
+									<h2 className="p-2 d-flex align-items-center">
+										ACTORS
 									</h2>
 									<div className="d-flex flex-wrap flex-row p-2 m-2">
 										{oneMovie.credits.cast.map(
 											(cast: CastType) => (
 												<Card
-													className="card-body m-3"
+													className="m-3"
 													key={cast.id}
 													style={{
 														width: "12rem",
-														backgroundColor:
-															"#212529",
-														boxShadow:
-															"2px 2px 10px black",
 													}}
 												>
 													<a
@@ -322,10 +286,10 @@ const Movie = () => {
 															src={`https://image.tmdb.org/t/p/w500${cast.profile_path}`}
 															className="card-image"
 														/>
-														<Card.Title className="bold card-text p-3">
+														<Card.Title className="p-3">
 															{cast.character}
 														</Card.Title>
-														<Card.Text className="p-3 muted">
+														<Card.Text className="p-3">
 															{cast.name}
 														</Card.Text>
 													</a>

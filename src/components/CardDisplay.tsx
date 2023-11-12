@@ -12,7 +12,7 @@ interface ICard {
 const CardDisplay: React.FC<ICard> = ({ id, title, poster_path, path }) => {
 	return (
 		<Card
-			className="card-body m-3"
+			className="m-3"
 			style={{
 				width: "12rem",
 				boxShadow: "2px 2px 10px black",
@@ -27,11 +27,8 @@ const CardDisplay: React.FC<ICard> = ({ id, title, poster_path, path }) => {
 				<Card.Img
 					variant="top"
 					src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-					className="card-image"
 				/>
-				<Card.Title className="bold card-text dark-text bold-text p-3">
-					{title}
-				</Card.Title>
+				<Card.Title className="p-3">{title}</Card.Title>
 			</a>
 		</Card>
 	);

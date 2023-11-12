@@ -3,15 +3,24 @@ import useAllData from "../hooks/useAllData";
 import { Alert, Spinner } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const GenreOptions = () => {
+interface IGenre {
+	genreNr: string;
+}
+
+const GenreOptions: React.FC<IGenre> = ({ genreNr }) => {
 	const {
 		data: genreData,
 		isError,
 		isLoading,
 	} = useAllData<GenreTypeResponse>(`genre/movie/list?`);
-	const [name, setName] = useState("GENRE");
+
+	const genreTitle = genreData?.genres.find((genre) => genre.id == genreNr);
+
+	console.log("this is genrenr", genreTitle?.name);
+
+	console.log("genrenr", genreNr);
 
 	return (
 		<>
@@ -34,13 +43,22 @@ const GenreOptions = () => {
 			{genreData && (
 				<>
 					<h1
-						className="p-5 m-5"
+						className="pt-5 m-5"
 						style={{
 							textTransform: "uppercase",
 						}}
 					>
-						{name}
+						GENRE
 					</h1>
+
+					<h2
+						className="ms-5"
+						style={{
+							textTransform: "uppercase",
+						}}
+					>
+						{genreTitle?.name}
+					</h2>
 					<Navbar
 						variant="outline-dark"
 						className="d-flex m-2 flex-row flex-wrap align-items-center justify-content-center"
@@ -49,8 +67,11 @@ const GenreOptions = () => {
 							<NavLink
 								to={"/genres/genre/" + oneGenre.id}
 								className={`btn m-1 p-3`}
+								style={{
+									backgroundColor: "black",
+									color: "white",
+								}}
 								key={oneGenre.id}
-								onClick={() => setName(oneGenre.name)}
 							>
 								{oneGenre.name}
 							</NavLink>

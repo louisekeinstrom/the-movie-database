@@ -15,7 +15,7 @@ const GenresPage = () => {
 
 	return (
 		<>
-			<GenreOptions />
+			<GenreOptions genreNr={"GENRE"} />
 
 			{isError && (
 				<>

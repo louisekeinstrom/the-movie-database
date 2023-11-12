@@ -37,45 +37,6 @@ const HomePage = () => {
 					<h2 className="p-3" style={{ textAlign: "center" }}>
 						Feel free to browse around and discover top rated movies
 					</h2>
-					<Carousel
-						className="carouselBody"
-						style={{ width: "100%" }}
-					>
-						{HomePageMovie.map((movie) => (
-							<Carousel.Item
-								key={movie.id}
-								as={Link}
-								to={"movie/" + movie.id}
-								style={{ textDecoration: "none" }}
-							>
-								<div className="d-flex flex-row p-10 align-content-center justify-content-center">
-									<div
-										className="carouselText"
-										style={{
-											width: "25%",
-											height: "200px",
-										}}
-									>
-										<h4 style={{ textAlign: "start" }}>
-											{movie.title}
-										</h4>
-										<h4 className="voteText muted">
-											⭐{movie.vote_average}
-										</h4>
-										<p style={{ textOverflow: "ellipsis" }}>
-											{movie.overview}
-										</p>
-									</div>
-									<div className="carousel align-items-center">
-										<img
-											src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-											style={{ height: "400px" }}
-										/>
-									</div>
-								</div>
-							</Carousel.Item>
-						))}
-					</Carousel>
 				</>
 			)}
 		</>

@@ -35,16 +35,12 @@ const Actor = () => {
 
 			{oneActor && (
 				<>
-					<div
-						className="background-image d-flex flex-column align-items-center"
-						style={{ width: "100%" }}
-					>
+					<div className="background-image d-flex flex-column align-items-center ">
 						<div
 							className="d-flex flex-column align-items-center p-3"
 							key={oneActor.id}
-							style={{ color: "white" }}
 						>
-							<div className="d-flex flex-row align-items-start justify-content-start p-5">
+							<div className="d-flex flex-column align-items-start justify-content-start p-5">
 								<div className="d-flex align-items-start justify-content-start p-2">
 									<img
 										src={`https://image.tmdb.org/t/p/w500${oneActor.profile_path}`}
@@ -53,61 +49,48 @@ const Actor = () => {
 											width: "250px",
 											height: "auto",
 										}}
-										className="actor-img"
 									/>
 								</div>
 								<div>
-									<div className="ps-4 movie-facts d-flex flex-column align-items-start">
+									<div className="ps-4 d-flex flex-column align-items-start">
 										<h1
 											style={{
 												textTransform: "uppercase",
 											}}
-											className="bold ps-4"
+											className="ps-4"
 										>
 											{oneActor.name}
 										</h1>
-										<div
-											className="biography d-flex flex-column align-items-start"
-											style={{ width: "70%" }}
-										>
+										<div className="d-flex flex-column align-items-start">
 											<p className="d-flex flex-column align-items-center ps-4">
 												{oneActor.biography}
 											</p>
-											<div
-												className="d-flex flex-row"
-												style={{ width: "100%" }}
-											>
-												<div
-													className="d-flex flex-wrap text-align align-items-start justify-content-start ps-4"
-													style={{ width: "50%" }}
-												>
-													<h4 className="act-info">
+											<div className="d-flex flex-column">
+												<div className="d-flex flex-wrap flex-column text-align align-items-start justify-content-start ps-4">
+													<h4>
 														Known for:{" "}
 														{
 															oneActor.known_for_department
 														}
 													</h4>
-													<h4 className="act-info">
+													<h4>
 														Place of birth:{" "}
 														{
 															oneActor.place_of_birth
 														}
 													</h4>
-													<h4 className="act-info">
+													<h4>
 														Birthday:{" "}
 														{oneActor.birthday}
 													</h4>
 													{oneActor.deathday && (
-														<h4 className="act-info">
+														<h4>
 															Deceased:{" "}
 															{oneActor.deathday}
 														</h4>
 													)}
 												</div>
-												<div
-													className="d-flex flex-row flex-wrap ps-4"
-													style={{ width: "50%" }}
-												>
+												<div className="d-flex flex-column flex-wrap ps-4">
 													<div>
 														<h4>Also known as: </h4>
 														{oneActor.also_known_as.map(
@@ -127,7 +110,7 @@ const Actor = () => {
 								</div>
 							</div>
 							<div>
-								<div className="d-flex flex-wrap flex-row p-2 m-2">
+								<div className="d-flex flex-wrap flex-column p-2 m-2">
 									<h2 className="p-2 m-2 bold">
 										STARRING IN
 									</h2>
