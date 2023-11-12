@@ -19,7 +19,7 @@ const Movie = () => {
 		isError,
 		isLoading,
 	} = useOneObject<SpecificMovieType>(
-		`/movie/${movieId}?include_adult=false&append_to_response=credits`
+		`/movie/${movieId}?append_to_response=credits`
 	);
 
 	return (
