@@ -1,24 +1,38 @@
-import { Alert, Button, ListGroup, Spinner } from "react-bootstrap";
 import useAllData from "../hooks/useAllData";
-import { GenreType, GenreResponse, MovieResponse } from "../types";
-import { Link } from "react-router-dom";
+import { MovieResponse } from "../types/movie.types";
 import CardDisplay from "../components/CardDisplay";
-import useAllMutation from "../hooks/useMutation";
-import { useState } from "react";
 import GenreOptions from "../components/GenreOptions";
+import { Alert, Spinner } from "react-bootstrap";
 
 const GenresPage = () => {
 	const {
 		data: genreData,
 		isError,
 		isLoading,
-		refetch,
 	} = useAllData<MovieResponse>(
-		`discover/movie?include_adult=false&sort_by=popularity.desc`
+		`/discover/movie?include_adult=false&page=&sort_by=popularity.desc&with_genres=`
 	);
+
 	return (
 		<>
 			<GenreOptions />
+
+			{isError && (
+				<>
+					<Alert variant="warning">
+						<h2>An error occurred...</h2>
+					</Alert>
+				</>
+			)}
+
+			{isLoading && (
+				<>
+					<div className="d-flex flex-column">
+						<Spinner animation="grow" /> <h2>Buffrar...</h2>
+					</div>
+				</>
+			)}
+
 			{genreData && (
 				<>
 					<div className="d-flex flex-wrap flex-row p-2 m-2">

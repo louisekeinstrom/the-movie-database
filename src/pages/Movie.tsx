@@ -1,19 +1,13 @@
 import { useParams } from "react-router-dom";
 import useOneObject from "../hooks/useOneObject";
+import { Alert, ListGroup, Spinner } from "react-bootstrap";
+import { SpecificMovieType } from "../types/movie.types";
 import {
-	ActorType,
-	CrewType,
+	CastType,
 	ProductionCompanyType,
 	ProductionCountryType,
 	SpokenLanguageType,
-} from "../types";
-import { Alert, ListGroup, Spinner } from "react-bootstrap";
-import { Carousel } from "react-bootstrap";
-import { CreditType, CrewCredit } from "../types";
-import { QueryClient, useMutation } from "@tanstack/react-query";
-import { getAllData } from "../services/APIservice";
-import { SpecificMovieType, CreditResponse } from "../types";
-import ImgCarousel from "../components/ImgCarousel";
+} from "../types/people.types";
 import { Card } from "react-bootstrap";
 
 const Movie = () => {
@@ -24,7 +18,7 @@ const Movie = () => {
 		isError,
 		isLoading,
 	} = useOneObject<SpecificMovieType>(
-		`/movie/${movieId}?include_video=true&append_to_response=credits`
+		`/movie/${movieId}?include_adult=false&append_to_response=credits`
 	);
 
 	return (
@@ -57,7 +51,6 @@ const Movie = () => {
 						<div
 							className="d-flex flex-column align-items-center p-3"
 							key={oneMovie.id}
-							style={{ color: "white" }}
 						>
 							<img
 								src={`https://image.tmdb.org/t/p/w500${oneMovie.poster_path}`}
@@ -72,16 +65,16 @@ const Movie = () => {
 									{oneMovie.title}
 								</h1>
 								<div className="d-flex flex-column align-items-center p-2 ">
-									<h3 className="d-flex flex-column align-items-center">
+									<h3 className="d-flex flex-column align-items-center muted">
 										{oneMovie.tagline}
 									</h3>
 								</div>
-								<p>
+								<p className="muted">
 									<span className="bold">Runtime:</span>{" "}
 									{oneMovie.runtime} min
 								</p>
 								<p
-									className="d-flex flex-column text-center"
+									className="d-flex flex-column text-center muted"
 									style={{ width: "75%" }}
 								>
 									{oneMovie.overview}
@@ -121,104 +114,126 @@ const Movie = () => {
 									</h4>
 								</div>
 								<div className="info">
-									<div
-										className="p-2 m-2 d-flex align-items-center flex-column"
-										style={{ width: "33%" }}
-									>
-										<h4>
-											<span className="bold">
-												Spoken Languages
-											</span>
-										</h4>
-										<ListGroup
-											className="list p-2 m-2"
-											style={{
-												textTransform: "capitalize",
-												width: "100%",
-											}}
-										>
-											{oneMovie.spoken_languages.map(
-												(lang: SpokenLanguageType) => (
-													<ListGroup.Item
-														className="list"
-														key={lang.name}
-													>
-														<h5>
-															{lang.english_name}
-														</h5>
-													</ListGroup.Item>
-												)
-											)}
-										</ListGroup>
-									</div>
-									<div
-										className="p-2 m-2 d-flex align-items-center flex-column"
-										style={{ width: "33%" }}
-									>
-										<h4>
-											<span className="bold">
-												Production Companies
-											</span>
-										</h4>
-										<ListGroup
-											className="list p-2 m-2"
-											style={{ width: "100%" }}
-										>
-											{oneMovie.production_companies.map(
-												(
-													movie: ProductionCompanyType
-												) => (
-													<ListGroup.Item
-														key={movie.id}
-														className="list"
-													>
-														<h5>{movie.name}</h5>
-														<p>
-															{
-																movie.origin_country
-															}
-														</p>
-													</ListGroup.Item>
-												)
-											)}
-										</ListGroup>
-									</div>
-									<div
-										className="p-2 m-2 d-flex align-items-center flex-column"
-										style={{ width: "33%" }}
-									>
-										<h4>
-											<span className="bold">
-												Production Countries
-											</span>
-										</h4>
-										<ListGroup
-											className="list p-2 m-2"
-											style={{ width: "100%" }}
-										>
-											{oneMovie.production_countries.map(
-												(
-													movie: ProductionCountryType
-												) => (
-													<ListGroup.Item
-														className="list"
-														key={movie.name}
-													>
-														<h5>{movie.name} </h5>
-													</ListGroup.Item>
-												)
-											)}
-										</ListGroup>
-									</div>
+									{oneMovie.spoken_languages && (
+										<>
+											<div
+												className="p-2 m-2 d-flex align-items-center flex-column"
+												style={{ width: "33%" }}
+											>
+												<h4>
+													<span className="bold">
+														Spoken Languages
+													</span>
+												</h4>
+												<ListGroup
+													className="list p-2 m-2"
+													style={{
+														textTransform:
+															"capitalize",
+														width: "100%",
+													}}
+												>
+													{oneMovie.spoken_languages.map(
+														(
+															lang: SpokenLanguageType
+														) => (
+															<ListGroup.Item
+																className="list"
+																key={lang.name}
+															>
+																<h5>
+																	{
+																		lang.english_name
+																	}
+																</h5>
+															</ListGroup.Item>
+														)
+													)}
+												</ListGroup>
+											</div>
+										</>
+									)}
+									{oneMovie.production_companies && (
+										<>
+											<div
+												className="p-2 m-2 d-flex align-items-center flex-column"
+												style={{ width: "33%" }}
+											>
+												<h4>
+													<span className="bold">
+														Production Companies
+													</span>
+												</h4>
+												<ListGroup
+													className="list p-2 m-2"
+													style={{ width: "100%" }}
+												>
+													{oneMovie.production_companies.map(
+														(
+															movie: ProductionCompanyType
+														) => (
+															<ListGroup.Item
+																key={movie.id}
+																className="list"
+															>
+																{" "}
+																<h5>
+																	{movie.name}
+																</h5>
+																<p>
+																	{
+																		movie.origin_country
+																	}
+																</p>
+															</ListGroup.Item>
+														)
+													)}
+												</ListGroup>
+											</div>
+										</>
+									)}
+									{oneMovie.production_countries && (
+										<>
+											<div
+												className="p-2 m-2 d-flex align-items-center flex-column"
+												style={{ width: "33%" }}
+											>
+												<h4>
+													<span className="bold">
+														Production Countries
+													</span>
+												</h4>
+												<ListGroup
+													className="list p-2 m-2"
+													style={{ width: "100%" }}
+												>
+													{oneMovie.production_countries.map(
+														(
+															movie: ProductionCountryType
+														) => (
+															<ListGroup.Item
+																className="list"
+																key={movie.name}
+															>
+																<h5>
+																	{movie.name}{" "}
+																</h5>
+															</ListGroup.Item>
+														)
+													)}
+												</ListGroup>
+											</div>
+										</>
+									)}
 								</div>
 								<div
 									style={{ textDecoration: "none" }}
 									className="p-2 m-2 d-flex flex-wrap flex-column align-items-center"
 								>
 									<a
+										className="bold-text p-2 dark-text"
 										style={{
 											textDecoration: "none",
-											color: "white",
 										}}
 										href={oneMovie.homepage}
 									>
@@ -227,18 +242,20 @@ const Movie = () => {
 										</h5>
 									</a>
 								</div>
-								<div>
-									<h2>Actors</h2>
+								<div className="d-flex align-items flex-column align-items-center soft-corner dark-color p-2">
+									<h2 className="p-2 d-flex align-items-center bold-text">
+										Actors
+									</h2>
 									<div className="d-flex flex-wrap flex-row p-2 m-2">
 										{oneMovie.credits.cast.map(
-											(cast: ActorType) => (
+											(cast: CastType) => (
 												<Card
 													className="card-body m-3"
+													key={cast.id}
 													style={{
 														width: "12rem",
 														backgroundColor:
 															"#212529",
-														color: "white",
 														boxShadow:
 															"2px 2px 10px black",
 													}}
@@ -250,19 +267,17 @@ const Movie = () => {
 														style={{
 															textDecoration:
 																"none",
-															color: "white",
 														}}
 													>
 														<Card.Img
 															variant="top"
 															src={`https://image.tmdb.org/t/p/w500${cast.profile_path}`}
-															alt={cast.name}
 															className="card-image"
 														/>
-														<Card.Title className="bold p-3">
+														<Card.Title className="bold card-text p-3">
 															{cast.character}
 														</Card.Title>
-														<Card.Text className="p-3">
+														<Card.Text className="p-3 muted">
 															{cast.name}
 														</Card.Text>
 													</a>

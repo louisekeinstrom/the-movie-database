@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import useAllData from "../hooks/useAllData";
-import { GenreResponse, GenreType, GenreTypeResponse } from "../types";
+import { GenreResponse } from "../types/genre.types";
 import { Alert, Spinner } from "react-bootstrap";
 import Pagination from "../components/Pagination";
 import CardDisplay from "../components/CardDisplay";
@@ -10,22 +9,17 @@ import GenreOptions from "../components/GenreOptions";
 const Genre = () => {
 	const { id } = useParams();
 	const genreId = Number(id);
-	const { page } = useParams();
-	const pageId = Number(page);
-	const [pageNr, setPageNr] = useState(1);
+	const [searchParams, setSearchParams] = useSearchParams({
+		page: "1",
+	});
+	const page = Number(searchParams.get("page") || 1);
 	const {
 		data: genreData,
 		isError,
 		isLoading,
-		refetch,
 	} = useAllData<GenreResponse>(
-		`/discover/movie?include_adult=false&page=${pageNr}&sort_by=popularity.desc&with_genres=${genreId}`
+		`/discover/movie?include_adult=false&page=${page}&sort_by=popularity.desc&with_genres=${genreId}`
 	);
-
-	const pageFn = (page: number) => {
-		setPageNr((preValue) => preValue + page);
-		console.log(pageNr);
-	};
 
 	return (
 		<>
@@ -64,14 +58,13 @@ const Genre = () => {
 						<Pagination
 							pageNumb={genreData.page}
 							totalPages={genreData.total_pages}
-							hasPreviousPage={pageId > 1}
-							hasNextPage={pageId + 1 < genreData.total_pages}
+							hasPreviousPage={page > 1}
+							hasNextPage={page + 1 < genreData.total_pages}
 							onPreviousPage={() => {
-								pageFn(-1);
+								setSearchParams({ page: String(page - 1) });
 							}}
 							onNextPage={() => {
-								pageFn(1);
-								refetch();
+								setSearchParams({ page: String(page + 1) });
 							}}
 						/>
 					</div>

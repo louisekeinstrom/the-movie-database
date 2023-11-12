@@ -1,10 +1,7 @@
 import { Alert, Carousel, Spinner } from "react-bootstrap";
 import useAllData from "../hooks/useAllData";
-import Pagination from "../components/Pagination";
-import CardDisplay from "../components/CardDisplay";
-import { MovieResponse } from "../types";
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { MovieResponse } from "../types/movie.types";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
 	const {
@@ -37,10 +34,7 @@ const HomePage = () => {
 			{HomePageMovie && HomePageMovie.length && (
 				<>
 					<h1 className=" m-5">WELCOME TO THE MOVIE DATABASE</h1>
-					<h2
-						className="p-3"
-						style={{ color: "white", textAlign: "center" }}
-					>
+					<h2 className="p-3" style={{ textAlign: "center" }}>
 						Feel free to browse around and discover top rated movies
 					</h2>
 					<Carousel
@@ -65,7 +59,7 @@ const HomePage = () => {
 										<h4 style={{ textAlign: "start" }}>
 											{movie.title}
 										</h4>
-										<h4 className="voteText">
+										<h4 className="voteText muted">
 											⭐{movie.vote_average}
 										</h4>
 										<p style={{ textOverflow: "ellipsis" }}>

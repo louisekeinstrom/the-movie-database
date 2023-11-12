@@ -1,8 +1,6 @@
 import axios from "axios";
-import { MovieResponse, SpecificMovieType } from "../types/index";
 
 // API-KEY
-
 const API = import.meta.env.VITE_API_KEY;
 
 // instance w baseURL

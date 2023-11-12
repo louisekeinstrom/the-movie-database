@@ -1,18 +1,23 @@
 import { Alert, Spinner } from "react-bootstrap";
 import CardDisplay from "../components/CardDisplay";
-import { MovieResponse } from "../types";
+import { MovieResponse } from "../types/movie.types";
 import Pagination from "../components/Pagination";
 import useAllData from "../hooks/useAllData";
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const Trending = () => {
-	const [page, setPage] = useState(1);
+	const [searchParams, setSearchParams] = useSearchParams({
+		page: "1",
+	});
+
+	const page = Number(searchParams.get("page") || 1);
 	const {
 		data: trendingData,
 		isError,
 		isLoading,
-		refetch,
-	} = useAllData<MovieResponse>("/trending/movie/day?");
+	} = useAllData<MovieResponse>(
+		`/trending/movie/day?include_adult=false&page=${page}`
+	);
 
 	return (
 		<>
@@ -52,11 +57,10 @@ const Trending = () => {
 									page + 1 < trendingData.total_pages
 								}
 								onPreviousPage={() => {
-									setPage((preValue) => preValue - 1);
+									setSearchParams({ page: String(page - 1) });
 								}}
 								onNextPage={() => {
-									setPage((preValue) => preValue + 1),
-										refetch;
+									setSearchParams({ page: String(page + 1) });
 								}}
 							/>
 						</div>

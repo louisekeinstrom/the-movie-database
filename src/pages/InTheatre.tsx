@@ -2,28 +2,21 @@ import { Alert, Spinner } from "react-bootstrap";
 import useAllData from "../hooks/useAllData";
 import CardDisplay from "../components/CardDisplay";
 import Pagination from "../components/Pagination";
-import { useEffect, useState } from "react";
-import { MovieResponse } from "../types";
-import { useParams } from "react-router-dom";
-import usePage from "../hooks/usePage";
+import { MovieResponse } from "../types/movie.types";
+import { useSearchParams } from "react-router-dom";
 
 const InTheatre = () => {
-	const [page, setPage] = useState(1);
+	const [searchParams, setSearchParams] = useSearchParams({
+		page: "1",
+	});
+	const page = Number(searchParams.get("page") || 1);
 	const {
 		data: theatreData,
 		isError,
 		isLoading,
-		refetch,
 	} = useAllData<MovieResponse>(
 		`/movie/now_playing?include_adult=false&page=${page}`
 	);
-	const pageFn = (page: number) => {
-		setPage((preValue) => preValue + page);
-	};
-
-	useEffect(() => {
-		console.log(page);
-	}, [pageFn]);
 
 	return (
 		<>
@@ -64,10 +57,10 @@ const InTheatre = () => {
 							hasPreviousPage={page > 1}
 							hasNextPage={page + 1 < theatreData.total_pages}
 							onPreviousPage={() => {
-								pageFn(-1);
+								setSearchParams({ page: String(page - 1) });
 							}}
 							onNextPage={() => {
-								pageFn(1);
+								setSearchParams({ page: String(page + 1) });
 							}}
 						/>
 					</div>

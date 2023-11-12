@@ -1,8 +1,7 @@
-import { GenreTypeResponse, GenreType } from "../types";
+import { GenreTypeResponse, GenreType } from "../types/genre.types";
 import useAllData from "../hooks/useAllData";
 import { Alert, Spinner } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 
 const GenreOptions = () => {
@@ -39,7 +38,7 @@ const GenreOptions = () => {
 					>
 						{genreData.genres.map((oneGenre: GenreType) => (
 							<NavLink
-								to={"/genres/" + oneGenre.id + "/1"}
+								to={"/genres/genre/" + oneGenre.id}
 								className={`btn m-1 p-3`}
 								key={oneGenre.id}
 							>

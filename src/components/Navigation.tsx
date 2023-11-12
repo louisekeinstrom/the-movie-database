@@ -6,7 +6,6 @@ const Navigation = () => {
 		<>
 			<Navbar
 				expand="lg"
-				bg="dark"
 				data-bs-theme="dark"
 				sticky="top"
 				className="navBar"

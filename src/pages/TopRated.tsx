@@ -1,17 +1,20 @@
 import { Alert, Spinner } from "react-bootstrap";
 import CardDisplay from "../components/CardDisplay";
-import { MovieResponse } from "../types";
+import { MovieResponse } from "../types/movie.types";
 import Pagination from "../components/Pagination";
 import useAllData from "../hooks/useAllData";
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const TopRated = () => {
-	const [page, setPage] = useState(1);
+	const [searchParams, setSearchParams] = useSearchParams({
+		page: "1",
+	});
+
+	const page = Number(searchParams.get("page") || 1);
 	const {
 		data: topRatedData,
 		isError,
 		isLoading,
-		refetch,
 	} = useAllData<MovieResponse>(
 		`/movie/top_rated?include_adult=false&page=${page}`
 	);
@@ -58,10 +61,10 @@ const TopRated = () => {
 									page + 1 < topRatedData.total_pages
 								}
 								onPreviousPage={() => {
-									setPage((preValue) => preValue - 1);
+									setSearchParams({ page: String(page - 1) });
 								}}
 								onNextPage={() => {
-									setPage((preValue) => preValue + 1);
+									setSearchParams({ page: String(page + 1) });
 								}}
 							/>
 						</div>

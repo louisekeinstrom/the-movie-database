@@ -3,39 +3,50 @@
 body {
 	margin: 0px;
 	font-family: "Montserrat", sans-serif;
-	background-color: black;
+	background-color: #330b0a;
 }
 .container {
 	width: 100%;
+	background-color: #0f0f0f;
+	box-shadow: 2px 2px 10px black;
+	min-height: 95vh;
 }
 
 h1,
 h4 {
-	color: white;
+	color: #e5e0c7;
 	font-family: "Dela Gothic One", cursive;
 	text-align: center;
+}
+
+h2 {
+	color: #e5e0c7;
 }
 
 .background-image {
 	background-repeat: no-repeat;
 	background-size: contain;
-	background-color: #212529;
+	background-color: #0f0f0f;
 }
 
-.btn.active {
-	color: white;
-}
-
-.btn {
-	color: white;
+.actor-img {
+	box-shadow: 2px 2px 10px black;
 }
 
 .info-box {
-	background-color: #212529;
+	background-color: #e5e0c7;
 	border-radius: 5px;
 	box-shadow: 2px 2px 10px black;
 	padding: 20px;
 	margin: 20px;
+}
+
+.act-info {
+	text-align: start;
+}
+
+.info-box h4 {
+	color: #0f0f0f;
 }
 
 .info {
@@ -53,6 +64,7 @@ h4 {
 
 .card-image {
 	border-radius: 0px;
+	background-color: #e5e0c7;
 }
 
 .card-body {
@@ -60,13 +72,16 @@ h4 {
 	padding: 0;
 	gap: 20px;
 	transition: all 0.3s ease-in-out;
-	box-shadow: 2px 2px 10px white;
+	box-shadow: 2px 2px 10px black;
+	background-color: #e5e0c7;
+	color: #0f0f0f;
 	max-width: 200px;
 }
 
 .card-body:hover {
 	scale: 1.1;
-	background: rgb(124, 124, 124);
+	background-color: #0f0f0f;
+	color: #d8d1ab;
 	background: linear-gradient(
 		90deg,
 		rgba(124, 124, 124, 0.48902888792235644) 0%,
@@ -74,68 +89,79 @@ h4 {
 	);
 }
 
+.card-text {
+	color: #e5e0c7;
+}
+
 .navBar {
 	box-shadow: 2px 2px 10px black;
 	padding: 10px 110px 10px 110px;
 	font-family: "Dela Gothic One", cursive;
-	background: rgb(161, 10, 10);
-	background: radial-gradient(
-		circle,
-		rgba(161, 10, 10, 1) 0%,
-		rgba(0, 0, 0, 0.7159196442248774) 100%
-	);
+	background-color: #0f0f0f;
 }
 
 .NavLink {
 	text-decoration: none;
-	color: white;
+	color: #d8d1ab;
 	padding: 10px;
 }
 
 .NavLink:active {
-	color: #212529;
+	color: #330b0a;
 }
 
 .homeIcon {
 	transition: all 0.3s ease-in-out;
+	color: #e5e0c7;
 }
 
 .homeIcon:hover {
 	scale: 1.1;
 	font-weight: bold;
+	color: #330b0a;
 }
 
-.captionBox {
-	background: rgb(161, 10, 10);
-	background: radial-gradient(
-		circle,
-		rgba(161, 10, 10, 1) 0%,
-		rgba(8, 12, 17, 0.7159196442248774) 100%
-	);
-	background-color: transparent;
-	text-decoration: none;
+.btn {
+	color: #e5e0c7;
+	border-color: #e5e0c7;
+	font-family: "Dela Gothic One", cursive;
+}
+
+.btn:hover {
+}
+
+.page-nr {
+	font-family: "Dela Gothic One", cursive;
+}
+
+.btn:disabled {
+	color: #d8d1ab;
+	border-color: #d8d1ab;
 }
 
 .carouselText {
 	text-decoration: none;
-	color: white;
+	color: #e5e0c7;
 	padding-right: 20px;
 }
 
 .carouselBody {
-	box-shadow: 2px 2px 10px black;
 	padding: 30px;
 	margin-bottom: 15px;
-	background: rgb(161, 10, 10);
-	background: radial-gradient(
-		circle,
-		rgba(161, 10, 10, 1) 0%,
-		rgba(0, 0, 0, 0.7159196442248774) 100%
-	);
+	background-color: #0f0f0f;
+}
+
+.muted {
+	color: #d8d1ab;
 }
 
 .voteText {
 	text-align: start;
+	color: #d8d1ab;
+}
+
+.bold-text {
+	font-family: "Dela Gothic One", cursive;
 }
 
 .page {
@@ -145,8 +171,21 @@ h4 {
 	margin-bottom: 40px;
 }
 
+.dark-text {
+	color: #0f0f0f;
+}
+
+.soft-corner {
+	border-radius: 5px;
+}
+
+.dark-color {
+	background-color: #0f0f0f;
+}
+
 .list {
-	background-color: #7a0b0b;
-	color: white;
+	background-color: #0f0f0f;
+	color: #e5e0c7;
 	border: none;
+	box-shadow: 2px 2px 10px black;
 }
