@@ -9,6 +9,7 @@ import {
 	SpokenLanguageType,
 } from "../types/people.types";
 import { Card } from "react-bootstrap";
+import { GenreType } from "../types/genre.types";
 
 const Movie = () => {
 	const { id } = useParams();
@@ -70,6 +71,10 @@ const Movie = () => {
 									</h3>
 								</div>
 								<p className="muted">
+									<span className="bold">Release date:</span>{" "}
+									{oneMovie.release_date}
+								</p>
+								<p className="muted">
 									<span className="bold">Runtime:</span>{" "}
 									{oneMovie.runtime} min
 								</p>
@@ -96,6 +101,11 @@ const Movie = () => {
 										{oneMovie.original_language}
 									</h4>
 									<h4>⭐ {oneMovie.vote_average}/10</h4>
+									<h4 style={{ textTransform: "capitalize" }}>
+										{" "}
+										<span className="bold">Budget: </span>
+										{oneMovie.budget}
+									</h4>
 									<h4>
 										<span className="bold">Revenue:</span>{" "}
 										{oneMovie.revenue}
@@ -113,12 +123,50 @@ const Movie = () => {
 										{oneMovie.vote_count}
 									</h4>
 								</div>
-								<div className="info">
+								<div className="info d-flex flex-column flex-wrap align-items-center">
+									{oneMovie.genres && (
+										<>
+											<div
+												className="d-flex flex-column"
+												style={{
+													width: "100%",
+												}}
+											>
+												<h4 className="bold">Genres</h4>
+												<ListGroup className="p-2 m-2">
+													{oneMovie.genres.map(
+														(
+															genreList: GenreType
+														) => (
+															<ListGroup.Item
+																className="list"
+																key={
+																	genreList.id
+																}
+															>
+																<h2
+																	className="bold-text"
+																	style={{
+																		textTransform:
+																			"capitalize",
+																	}}
+																>
+																	{
+																		genreList.name
+																	}
+																</h2>
+															</ListGroup.Item>
+														)
+													)}
+												</ListGroup>
+											</div>
+										</>
+									)}
 									{oneMovie.spoken_languages && (
 										<>
 											<div
 												className="p-2 m-2 d-flex align-items-center flex-column"
-												style={{ width: "33%" }}
+												style={{ width: "100%" }}
 											>
 												<h4>
 													<span className="bold">
@@ -141,11 +189,11 @@ const Movie = () => {
 																className="list"
 																key={lang.name}
 															>
-																<h5>
+																<h2 className="bold-text">
 																	{
 																		lang.english_name
 																	}
-																</h5>
+																</h2>
 															</ListGroup.Item>
 														)
 													)}
@@ -157,7 +205,7 @@ const Movie = () => {
 										<>
 											<div
 												className="p-2 m-2 d-flex align-items-center flex-column"
-												style={{ width: "33%" }}
+												style={{ width: "100%" }}
 											>
 												<h4>
 													<span className="bold">
@@ -177,9 +225,9 @@ const Movie = () => {
 																className="list"
 															>
 																{" "}
-																<h5>
+																<h2 className="bold-text">
 																	{movie.name}
-																</h5>
+																</h2>
 																<p>
 																	{
 																		movie.origin_country
@@ -196,7 +244,7 @@ const Movie = () => {
 										<>
 											<div
 												className="p-2 m-2 d-flex align-items-center flex-column"
-												style={{ width: "33%" }}
+												style={{ width: "100%" }}
 											>
 												<h4>
 													<span className="bold">
@@ -215,9 +263,9 @@ const Movie = () => {
 																className="list"
 																key={movie.name}
 															>
-																<h5>
+																<h2 className="bold-text">
 																	{movie.name}{" "}
-																</h5>
+																</h2>
 															</ListGroup.Item>
 														)
 													)}

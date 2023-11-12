@@ -3,6 +3,7 @@ import useAllData from "../hooks/useAllData";
 import { Alert, Spinner } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
+import { useState } from "react";
 
 const GenreOptions = () => {
 	const {
@@ -10,6 +11,7 @@ const GenreOptions = () => {
 		isError,
 		isLoading,
 	} = useAllData<GenreTypeResponse>(`genre/movie/list?`);
+	const [name, setName] = useState("GENRE");
 
 	return (
 		<>
@@ -31,7 +33,14 @@ const GenreOptions = () => {
 
 			{genreData && (
 				<>
-					<h1 className="p-5 m-5">GENRES</h1>
+					<h1
+						className="p-5 m-5"
+						style={{
+							textTransform: "uppercase",
+						}}
+					>
+						{name}
+					</h1>
 					<Navbar
 						variant="outline-dark"
 						className="d-flex m-2 flex-row flex-wrap align-items-center justify-content-center"
@@ -41,6 +50,7 @@ const GenreOptions = () => {
 								to={"/genres/genre/" + oneGenre.id}
 								className={`btn m-1 p-3`}
 								key={oneGenre.id}
+								onClick={() => setName(oneGenre.name)}
 							>
 								{oneGenre.name}
 							</NavLink>
