@@ -16,10 +16,7 @@ function App() {
 	return (
 		<>
 			<Navigation />
-			<Container
-				style={{ width: "100%" }}
-				className="container d-flex flex-column"
-			>
+			<Container className="movie_container d-flex flex-column">
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/in-theatre" element={<InTheatre />} />

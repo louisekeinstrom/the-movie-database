@@ -71,11 +71,12 @@ const Movie = () => {
 									</h3>
 								</div>
 								<p>
-									<span>Release date:</span>{" "}
+									<span className="p">Release date:</span>{" "}
 									{oneMovie.release_date}
 								</p>
 								<p>
-									<span>Runtime:</span> {oneMovie.runtime} min
+									<span className="p">Runtime:</span>{" "}
+									{oneMovie.runtime} min
 								</p>
 								<p
 									className="d-flex flex-column text-center"
@@ -88,28 +89,33 @@ const Movie = () => {
 								<div className="d-flex align-items-center justify-content-center flex-column p-5">
 									<h4 style={{ textTransform: "capitalize" }}>
 										{" "}
-										<span>Original Title: </span>
+										<span className="p">
+											Original Title:{" "}
+										</span>
 										{oneMovie.original_title}
 									</h4>
 									<h4 style={{ textTransform: "capitalize" }}>
-										<span>Original Language:</span>{" "}
+										<span className="p">
+											Original Language:
+										</span>{" "}
 										{oneMovie.original_language}
 									</h4>
 									<h4>⭐ {oneMovie.vote_average}/10</h4>
 									<h4 style={{ textTransform: "capitalize" }}>
 										{" "}
-										<span>Budget: </span>
+										<span className="p">Budget: </span>
 										{oneMovie.budget}
 									</h4>
 									<h4>
-										<span>Revenue:</span> {oneMovie.revenue}
+										<span className="p">Revenue:</span>{" "}
+										{oneMovie.revenue}
 									</h4>
 									<h4>
-										<span>Popularity:</span>{" "}
+										<span className="p">Popularity:</span>{" "}
 										{oneMovie.popularity}
 									</h4>
 									<h4>
-										<span>Vote Count:</span>{" "}
+										<span className="p">Vote Count:</span>{" "}
 										{oneMovie.vote_count}
 									</h4>
 								</div>

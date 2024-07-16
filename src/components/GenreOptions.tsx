@@ -53,7 +53,7 @@ const GenreOptions: React.FC<IGenre> = ({ genreNr }) => {
 						{genreData.genres.map((oneGenre: GenreType) => (
 							<NavLink
 								to={"/genres/genre/" + oneGenre.id}
-								className={`btn m-1 p-3`}
+								className={`btn h4 m-1 p-3`}
 								style={{
 									backgroundColor: "black",
 									color: "white",

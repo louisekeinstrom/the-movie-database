@@ -22,17 +22,17 @@ const Pagination: React.FC<IProps> = ({
 		<div className="page">
 			<div className="d-flex flex-row">
 				<Button
-					variant="primary"
+					className="button h3"
 					disabled={!hasPreviousPage}
 					onClick={onPreviousPage}
 				>
 					Previous Page
 				</Button>
-				<div className="p-5 pt-3 pb-3">
+				<div className="h3 p-5 pt-3 pb-3">
 					{pageNumb}/{totalPages}
 				</div>
 				<Button
-					variant="primary"
+					className="button h3"
 					disabled={!hasNextPage}
 					onClick={onNextPage}
 				>

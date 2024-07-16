@@ -10,25 +10,38 @@ const Navigation = () => {
 				expand="lg"
 				data-bs-theme="dark"
 				sticky="top"
-				className="bg-body-tertiary"
+				className="pb-2 pt-2 menuBar"
 			>
-				<Container>
-					<Navbar.Brand className="homeIcon" as={NavLink} end to="/">
+				<Container className="menuBar">
+					<Navbar.Brand
+						className="homeIcon h1"
+						as={NavLink}
+						end
+						to="/"
+					>
 						TMDB
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="me-auto">
-							<Nav.Link as={NavLink} to="/in-theatre">
+							<Nav.Link
+								className="P"
+								as={NavLink}
+								to="/in-theatre"
+							>
 								In Theatre
 							</Nav.Link>
-							<Nav.Link as={NavLink} to="/trending">
+							<Nav.Link className="P" as={NavLink} to="/trending">
 								Trending
 							</Nav.Link>
-							<Nav.Link as={NavLink} to="/top-rated">
+							<Nav.Link
+								className="P"
+								as={NavLink}
+								to="/top-rated"
+							>
 								Top Rated
 							</Nav.Link>
-							<Nav.Link as={NavLink} to="/genres">
+							<Nav.Link className="P" as={NavLink} to="/genres">
 								Genres
 							</Nav.Link>
 						</Nav>

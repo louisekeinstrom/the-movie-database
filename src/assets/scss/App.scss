@@ -1,5 +1,106 @@
 @import "bootstrap/scss/bootstrap";
 
+body {
+	background-image: url("../images/pexels-megha-mangal-224592-806880.jpg");
+}
+
+// TYPOGRAPHY
+h1,
+.h1 {
+	font-family: "Abril Fatface", serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 4rem;
+	color: #050404;
+}
+
+h2,
+.h2 {
+	font-family: "Lilita One", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 2rem;
+	color: #050404;
+}
+
+h3,
+.h3 {
+	font-family: "Lilita One", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 1.5rem;
+	color: #050404;
+}
+h4,
+.h4 {
+	font-family: "Lilita One", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 1.5rem;
+	color: #050404;
+}
+
+p,
+.P {
+	font-size: 15px;
+	font-family: "Maven Pro", sans-serif;
+}
+a {
+	font-family: "Maven Pro", sans-serif;
+	text-decoration: none;
+	color: black;
+}
+
+a:active {
+	color: #f7b05b;
+}
+
+.button {
+	background-color: #841c26;
+	border: none;
+	transition: 1s;
+	color: #fff;
+}
+
+.button:hover {
+	transform: scale(1.1);
+	background-color: #841c26;
+}
+
+.button:active {
+	background-color: #320b0f;
+}
+
+.button:disabled {
+	background-color: #050404;
+}
+
+.movie_container {
+	background-color: #fff;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+	border-radius: 1rem;
+	padding-left: 2rem;
+	padding-bottom: 2rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.menuBar {
+	background-color: #050404;
+	.h1 {
+		color: #841c26;
+	}
+}
+.menuBar:active {
+	.h1 {
+		color: #f7b05b;
+	}
+}
+
 .background-image {
 	background-repeat: no-repeat;
 	background-size: contain;
