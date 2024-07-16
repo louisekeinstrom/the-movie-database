@@ -17,10 +17,6 @@ const GenreOptions: React.FC<IGenre> = ({ genreNr }) => {
 
 	const genreTitle = genreData?.genres.find((genre) => genre.id == genreNr);
 
-	console.log("this is genrenr", genreTitle?.name);
-
-	console.log("genrenr", genreNr);
-
 	return (
 		<>
 			{isError && (
@@ -47,17 +43,9 @@ const GenreOptions: React.FC<IGenre> = ({ genreNr }) => {
 							textTransform: "uppercase",
 						}}
 					>
-						GENRE
+						Find your {genreTitle?.name}
 					</h1>
 
-					<h2
-						className="ms-5"
-						style={{
-							textTransform: "uppercase",
-						}}
-					>
-						{genreTitle?.name}
-					</h2>
 					<Navbar
 						variant="outline-dark"
 						className="d-flex m-2 flex-row flex-wrap align-items-center justify-content-center"
