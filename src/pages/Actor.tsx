@@ -96,9 +96,9 @@ const Actor = () => {
 														{oneActor.also_known_as.map(
 															(name) => {
 																return (
-																	<p>
+																	<h4>
 																		{name}
-																	</p>
+																	</h4>
 																);
 															}
 														)}
