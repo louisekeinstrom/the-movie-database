@@ -122,7 +122,7 @@ const Movie = () => {
 								<div className="d-flex flex-column flex-wrap align-items-center">
 									{oneMovie.genres && (
 										<>
-											<div className="d-flex flex-column">
+											<div className="p-2 m-2 d-flex align-items-center flex-column">
 												<h4>Genres</h4>
 												<ListGroup className="p-2 m-2">
 													{oneMovie.genres.map(
@@ -154,11 +154,7 @@ const Movie = () => {
 									{oneMovie.spoken_languages && (
 										<>
 											<div className="p-2 m-2 d-flex align-items-center flex-column">
-												<h4>
-													<span>
-														Spoken Languages
-													</span>
-												</h4>
+												<h4>Spoken Languages</h4>
 												<ListGroup
 													className=" p-2 m-2"
 													style={{
@@ -264,11 +260,11 @@ const Movie = () => {
 										</h5>
 									</a>
 								</div>
-								<div className="d-flex align-items flex-column align-items-center p-2">
+								<div className="d-flex align-items flex-column justify-content-center align-items-center p-2">
 									<h2 className="p-2 d-flex align-items-center">
 										ACTORS
 									</h2>
-									<div className="d-flex flex-wrap flex-row p-2 m-2">
+									<div className="d-flex flex-wrap justify-content-center flex-row p-2 m-2">
 										{oneMovie.credits.cast.map(
 											(cast: CastType) => (
 												<Card

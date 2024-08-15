@@ -38,7 +38,7 @@ const GenreOptions: React.FC<IGenre> = ({ genreNr }) => {
 			{genreData && (
 				<>
 					<h1
-						className="pt-5 m-5"
+						className="title pt-5 h2"
 						style={{
 							textTransform: "uppercase",
 						}}

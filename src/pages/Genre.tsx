@@ -43,11 +43,10 @@ const Genre = () => {
 
 			{genreData && (
 				<>
-					<div className="d-flex flex-wrap flex-row p-2 m-2">
+					<div className="d-flex flex-wrap justify-content-evenly flex-row p-2 m-2">
 						{genreData.results.map((movie) => (
 							<CardDisplay
 								key={movie.id}
-								title={movie.title}
 								poster_path={movie.poster_path}
 								id={movie.id}
 								path="/movie"

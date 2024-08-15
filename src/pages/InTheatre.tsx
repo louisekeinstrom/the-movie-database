@@ -38,12 +38,11 @@ const InTheatre = () => {
 
 			{theatreData && (
 				<>
-					<h1 className="p-5 m-5">IN THEATRE</h1>
-					<div className="d-flex flex-wrap flex-row p-2 m-2">
+					<h1 className="title p-5 h2">IN THEATRE</h1>
+					<div className="d-flex flex-wrap justify-content-evenly flex-row p-2 m-2">
 						{theatreData.results.map((movie) => (
 							<CardDisplay
 								key={movie.id}
-								title={movie.title}
 								poster_path={movie.poster_path}
 								id={movie.id}
 								path="movie"

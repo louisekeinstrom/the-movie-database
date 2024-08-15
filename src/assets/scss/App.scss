@@ -95,10 +95,8 @@ a:active {
 		color: #841c26;
 	}
 }
-.menuBar:active {
-	.h1 {
-		color: #f7b05b;
-	}
+.homeIcon:active {
+	color: #f7b05b;
 }
 
 .background-image {
@@ -108,4 +106,44 @@ a:active {
 
 .card-body {
 	max-width: 200px;
+}
+
+.card {
+	transition: 0.5s ease-in-out;
+}
+
+.card:hover {
+	scale: 1.1;
+}
+
+.title {
+	font-size: 4rem;
+}
+
+@media (max-width: 769px) {
+	h1,
+	.h1 {
+		font-size: 3rem;
+	}
+
+	h2,
+	.h2 {
+		font-size: 1.3rem;
+	}
+	h3,
+	.h3 {
+		font-size: 1.1rem;
+	}
+	h4,
+	.h4 {
+		font-size: 1.1rem;
+	}
+	// p,
+	// .p {
+	// 	font-size: 0.9rem;
+	// }
+
+	.title {
+		font-size: 3rem;
+	}
 }
